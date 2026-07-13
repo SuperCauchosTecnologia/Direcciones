@@ -17,10 +17,19 @@ header {
     background: linear-gradient(135deg, #4a0e17, #111111); /* Vinotinto a Negro */
     color: #ffffff;
     text-align: center;
-    padding: 3rem 1rem;
-    margin-bottom: 3rem;
     border-bottom: 3px solid #b3001b; /* Línea Roja */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+
+    /* --- CONTROL TOTAL DE ALTURA --- */
+    height: 180px;            /* ← ESTO obliga al cajón a medir exactamente 120px de alto */
+    padding: 0 1rem;          /* Quitamos el padding vertical para que no sume espacio */
+    margin-bottom: 3rem;
+
+    /* --- CENTRADO --- */
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    overflow: hidden;         /* Corta cualquier espacio invisible sobrante de la imagen */
 }
 
 header h1 {
@@ -61,63 +70,71 @@ header p {
     border-color: #b3001b; /* Pasa a Rojo al posicionarse encima */
 }
 
-/* Encabezados de Empresa - TOTALMENTE ALINEADOS */
+/* Encabezados de Empresa - SE ADAPTA AL LOGO SIN ESPACIOS VACÍOS */
 .empresa-header {
     background-color: #4a0e17; /* Fondo Vinotinto */
-    padding: 5px 15px;              
+    padding: 20px 15px;        /* Espaciado interno controlado y balanceado */      
     text-align: center;
     border-bottom: 2px solid #b3001b; /* Línea Roja */
     
-    /* Caja contenedora rígida flex */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* Distribuye el espacio eficientemente */
-    height: 280px;                  /* Altura fija ideal para que las 3 líneas rojas estén a la par sin desbordarse */
+    justify-content: center;
+    height: auto;              /* Removida la altura fija para que la parte roja no se vea gigante */
     box-sizing: border-box;
 }
 
 /* --- CAJA SEPARADORA TRANSPARENTE PARA EL LOGO --- */
 .logo-container {
     width: 100%;
-    height: 160px;                 /* Espacio vertical fijo ideal para albergar los logos */
-    background-color: transparent; /* Caja invisible */
+    height: 100px;                 /* Altura compacta ideal para que los logos se expandan a lo ancho */
+    background-color: transparent; 
     display: flex;
     justify-content: center;
-    align-items: center;           /* Mantiene el logo flotando perfectamente en el centro */
-    margin-bottom: 10px;           
+    align-items: center;           
+    margin-bottom: 12px;           /* Separación controlada entre el logo y el nombre */
+    overflow: hidden;              
 }
 
 /* --- ESTILO BASE PARA LOS LOGOS --- */
 .empresa-logo {
     width: 100%;
     height: 100%;
-    object-fit: contain;           /* Evita que los logos se deformen o estiren */
+    object-fit: contain;           
     display: block;
 }
 
-/* --- CONTROL INDEPENDIENTE DE TAMAÑOS POR LOGO --- */
+.empresa-logo1 {
+    height: 160px;            /* ← Le damos altura al oso para que resalte */
+    width: auto;
+    object-fit: contain;      /* Mantiene la proporción */
+    display: block;
+    transform: scale(1.8);    /* ← Zoom controlado para ignorar los bordes vacíos de la foto */
+}
+
+/* --- CONTROL DE TAMAÑOS EN LAS TARJETAS --- */
 .logo-cauchos {
-    max-width: 75%;   /* Tamaño para Super Cauchos */
-    max-height: 85%;
+    max-width: 95%;    /* Incrementado para que se vea más grande */
+    max-height: 100%;
 }
 
 .logo-lub {
-    max-width: 100%;   /* Al ser un logo alargado horizontalmente, aprovecha más el ancho de la tarjeta */
-    max-height: 100%;  /* Controla el alto para mantener la proporción */
-    transform: scale(1.2);
+    max-width: 100%;   
+    max-height: 100%;  
+    transform: scale(1.25); /* Se aumentó para destacar el logo del medio que es más pequeño */
 }
 
 .logo-camiones {
-    max-width: 75%;   /* Tamaño para Super Camiones */
-    max-height: 85%;
+    max-width: 95%;    /* Incrementado para que se vea más grande */
+    max-height: 100%;
 }
 
-/* Ajustes de tipografía para mantener el orden */
+/* Ajustes de tipografía */
 .empresa-header h2 {
     font-size: 1.4rem;
     color: #ffffff; 
-    margin: 0;                 
+    margin: 0;                  
     line-height: 1.2;
 }
 
@@ -130,7 +147,7 @@ header p {
 
 /* --- CONTENIDO CON ESPACIO DESPUÉS DE LA LÍNEA ROJA --- */
 .empresa-contenido {
-    padding: 30px 20px 20px 20px; /* Separación de 30px abajo de la línea roja */
+    padding: 30px 20px 20px 20px; 
     display: flex;
     flex-direction: column;
     gap: 20px;
