@@ -61,27 +61,76 @@ header p {
     border-color: #b3001b; /* Pasa a Rojo al posicionarse encima */
 }
 
-/* Encabezados de Empresa */
+/* Encabezados de Empresa - TOTALMENTE ALINEADOS */
 .empresa-header {
     background-color: #4a0e17; /* Fondo Vinotinto */
-    padding: 20px;
+    padding: 5px 15px;              
     text-align: center;
     border-bottom: 2px solid #b3001b; /* Línea Roja */
+    
+    /* Caja contenedora rígida flex */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Distribuye el espacio eficientemente */
+    height: 280px;                  /* Altura fija ideal para que las 3 líneas rojas estén a la par sin desbordarse */
+    box-sizing: border-box;
 }
 
+/* --- CAJA SEPARADORA TRANSPARENTE PARA EL LOGO --- */
+.logo-container {
+    width: 100%;
+    height: 160px;                 /* Espacio vertical fijo ideal para albergar los logos */
+    background-color: transparent; /* Caja invisible */
+    display: flex;
+    justify-content: center;
+    align-items: center;           /* Mantiene el logo flotando perfectamente en el centro */
+    margin-bottom: 10px;           
+}
+
+/* --- ESTILO BASE PARA LOS LOGOS --- */
+.empresa-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;           /* Evita que los logos se deformen o estiren */
+    display: block;
+}
+
+/* --- CONTROL INDEPENDIENTE DE TAMAÑOS POR LOGO --- */
+.logo-cauchos {
+    max-width: 75%;   /* Tamaño para Super Cauchos */
+    max-height: 85%;
+}
+
+.logo-lub {
+    max-width: 100%;   /* Al ser un logo alargado horizontalmente, aprovecha más el ancho de la tarjeta */
+    max-height: 100%;  /* Controla el alto para mantener la proporción */
+    transform: scale(1.2);
+}
+
+.logo-camiones {
+    max-width: 75%;   /* Tamaño para Super Camiones */
+    max-height: 85%;
+}
+
+/* Ajustes de tipografía para mantener el orden */
 .empresa-header h2 {
     font-size: 1.4rem;
-    color: #ffffff; /* Blanco */
+    color: #ffffff; 
+    margin: 0;                 
+    line-height: 1.2;
 }
 
 .empresa-header .tagline {
     font-size: 0.9rem;
     color: #dddddd;
-    margin-top: 4px;
+    margin-top: 5px;           
+    margin-bottom: 0;
 }
 
+/* --- CONTENIDO CON ESPACIO DESPUÉS DE LA LÍNEA ROJA --- */
 .empresa-contenido {
-    padding: 20px;
+    padding: 30px 20px 20px 20px; /* Separación de 30px abajo de la línea roja */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -127,7 +176,7 @@ header p {
     filter: brightness(1.2);
 }
 
-/* Manteniendo los colores originales solicitados de las marcas para los botones */
+/* Colores de botones */
 .whatsapp { background-color: #25D366; }
 .instagram { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
 .tiktok { background-color: #000000; border: 1px solid #444; }
